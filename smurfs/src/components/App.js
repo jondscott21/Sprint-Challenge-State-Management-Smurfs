@@ -12,13 +12,13 @@ function App() {
 
   useEffect(() => {
     dispatch(getData())
-  }, [dispatch])
+  }, [state.smurfs, dispatch])
 
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <SmurfForm dispatch={dispatch} />
-        <Smurfs smurfs={state.smurfs} />
+        <Smurfs smurfs={state.smurfs}  />
       </div>
     );
 
