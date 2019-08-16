@@ -12,8 +12,6 @@ function SmurfForm({status, setStatus}) {
             dispatch(setData(status))
         }
         setStatus(undefined);
-        console.log(status)
-
     },[status, setStatus, dispatch])
 
     return (

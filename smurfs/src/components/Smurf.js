@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {deleteData, getData} from '../actions'
+import React from 'react';
+import { deleteData } from '../actions'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 // import {getData} from '../actions'
