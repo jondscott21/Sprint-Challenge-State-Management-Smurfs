@@ -1,5 +1,5 @@
 import {FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE, 
-DELETE_DATA_START, DELETE_DATA_SUCCESS, DELETE_DATA_FAILURE} from '../actions'
+DELETE_DATA_START, DELETE_DATA_SUCCESS, DELETE_DATA_FAILURE, SET_DATA} from '../actions'
 
 const initialState = {
     smurfs: [],
@@ -29,14 +29,12 @@ export const reducer = (state = initialState, action) => {
                 };
             }
         case DELETE_DATA_START:
-                console.log(DELETE_DATA_START)
             return {
                 ...state,
                 error: 'delete failed',
                 isFetching: true
             }
         case DELETE_DATA_SUCCESS:  
-        console.log(DELETE_DATA_SUCCESS)
             return {
                 ...state,
                 smurfs: state.smurfs.filter(smurf => smurf.id !== action.payload),
@@ -44,10 +42,15 @@ export const reducer = (state = initialState, action) => {
                 error: ''
             }
         case DELETE_DATA_FAILURE: {
-            console.log(DELETE_DATA_FAILURE)
             return {
                 ...state,
                 error: action.payload
+                };
+            }
+        case SET_DATA: {
+            return {
+                ...state,
+                smurfs: action.payload
                 };
             }
         default: return state;

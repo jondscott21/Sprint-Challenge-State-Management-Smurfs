@@ -6,9 +6,6 @@ import { Link } from 'react-router-dom'
 
 function Smurf({smurf}) {
     const dispatch = useDispatch()
-    // useEffect(() => {
-    //     dispatch(getData())
-    //   }, [dispatch])
     return(
         <div className="smurf-card">
             <h1>{smurf.name}</h1>

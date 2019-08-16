@@ -2,14 +2,17 @@ import React, {useEffect} from 'react';
 import { Form, Field, withFormik } from "formik";
 import * as Yup from 'yup';
 import axios from 'axios';
-import {getData} from '../actions'
+import {setData} from '../actions'
+import {useDispatch} from 'react-redux'
 
-function SmurfForm({dispatch, status, setStatus}) {
+function SmurfForm({status, setStatus}) {
+    const dispatch = useDispatch()
     useEffect(() => {
         if(status !== undefined) {
-            dispatch(getData())
+            dispatch(setData(status))
         }
         setStatus(undefined);
+        console.log(status)
 
     },[status, setStatus, dispatch])
 
@@ -42,7 +45,7 @@ const FormikSmurfForm = withFormik({
         console.log("form submitted", values);
         axios.post(`http://localhost:3333/smurfs`, values)
         .then(res => {
-            // console.log('response', res.data)
+            console.log('response', res.data)
             setStatus(res.data)
             resetForm();
         })

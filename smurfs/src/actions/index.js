@@ -6,6 +6,7 @@ export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE';
 export const DELETE_DATA_START = 'DELETE_DATA_START';
 export const DELETE_DATA_SUCCESS = 'DELETE_DATA_SUCCESS';
 export const DELETE_DATA_FAILURE = 'DELETE_DATA_FAILURE';
+export const SET_DATA = 'SET_DATA';
 
 export const getData = () => {
   return dispatch => {
@@ -13,7 +14,6 @@ export const getData = () => {
     axios
       .get(`http://localhost:3333/smurfs`)
       .then(res => {
-          console.log(res.data)
         dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
       })
       .catch(err => {
@@ -28,7 +28,6 @@ export const deleteData = (id) => {
       axios
         .delete(`http://localhost:3333/smurfs/${id}`)
         .then(res => {
-          //   console.log(res.data)
           dispatch({ type: DELETE_DATA_SUCCESS, payload: id });
         })
         .catch(err => {
@@ -36,3 +35,9 @@ export const deleteData = (id) => {
         });
     };
   };
+
+  export const setData = (obj) => {
+    return dispatch => {
+      dispatch({type: SET_DATA, payload: obj})
+    }
+  }

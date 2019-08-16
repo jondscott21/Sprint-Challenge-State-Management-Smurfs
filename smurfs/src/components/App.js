@@ -19,8 +19,8 @@ function App() {
       <Router>
         <div className="App">
           <h1>SMURFS! 2.0 W/ Redux</h1>
-          <SmurfForm dispatch={dispatch} />
-          <Smurfs smurfs={state.smurfs} dispatch={dispatch} />
+          <SmurfForm  />
+          <Smurfs smurfs={state.smurfs} />
           <Route path='/:id' component={Edit}  />
         </div>
       </Router>

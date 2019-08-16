@@ -1,10 +1,10 @@
 import React from 'react';
 import Smurf from './Smurf'
 
-function Smurfs({smurfs, dispatch}) {
+function Smurfs({smurfs}) {
     return (
         <div className='card-wrapper'>
-            {smurfs && smurfs.map((smurf, index) => <Smurf key={index} smurf={smurf} dispatch={dispatch} />)}
+            {smurfs && smurfs.map((smurf, index) => <Smurf key={index} smurf={smurf} />)}
         </div>
     )
 }
