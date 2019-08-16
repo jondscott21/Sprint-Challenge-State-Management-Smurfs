@@ -2,27 +2,50 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.smurf-card {
+  background: #88CCFF;
+  width: 10%;
+  color: #ffffff;
+  padding: 10px;
+  margin: 10px;
+  border: black solid 1px;
+}
+
+.smurf-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.smurf-input {
+  width: 20%;
+  padding: 10px;
+  margin: 10px;
+  font-family: Roboto, sans-serif;
+}
+
+.btn {
+  background: #88CCFF;
   color: white;
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  width: 150px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.delete-btn {
+  background: red;
+  border: none;
+  width: 40%;
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
 }
