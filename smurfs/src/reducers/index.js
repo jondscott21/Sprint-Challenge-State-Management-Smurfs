@@ -29,19 +29,22 @@ export const reducer = (state = initialState, action) => {
                 };
             }
         case DELETE_DATA_START:
+                console.log(DELETE_DATA_START)
             return {
                 ...state,
                 error: 'delete failed',
                 isFetching: true
             }
         case DELETE_DATA_SUCCESS:  
+        console.log(DELETE_DATA_SUCCESS)
             return {
                 ...state,
-                smurfs: state.smurfs.filter(smurf => smurf !== action.payload),
+                smurfs: state.smurfs.filter(smurf => smurf.id !== action.payload),
                 isFetching: false,
                 error: ''
             }
         case DELETE_DATA_FAILURE: {
+            console.log(DELETE_DATA_FAILURE)
             return {
                 ...state,
                 error: action.payload

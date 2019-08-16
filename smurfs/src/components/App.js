@@ -1,6 +1,8 @@
 import React, {useEffect} from "react";
 import "./App.css";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch, connect } from 'react-redux'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Edit from './Edit'
 
 import SmurfForm from './SmurfForm'
 import Smurfs from './Smurfs'
@@ -12,14 +14,16 @@ function App() {
 
   useEffect(() => {
     dispatch(getData())
-  }, [state.smurfs, dispatch])
-
+  }, [dispatch])
     return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <SmurfForm dispatch={dispatch} />
-        <Smurfs smurfs={state.smurfs}  />
-      </div>
+      <Router>
+        <div className="App">
+          <h1>SMURFS! 2.0 W/ Redux</h1>
+          <SmurfForm dispatch={dispatch} />
+          <Smurfs smurfs={state.smurfs} dispatch={dispatch} />
+          <Route path='/:id' component={Edit}  />
+        </div>
+      </Router>
     );
 
 }

@@ -4,8 +4,14 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import {getData} from '../actions'
 
-function SmurfForm() {
-    
+function SmurfForm({dispatch, status, setStatus}) {
+    useEffect(() => {
+        if(status !== undefined) {
+            dispatch(getData())
+        }
+        setStatus(undefined);
+
+    },[status, setStatus, dispatch])
 
     return (
         <Form className='smurf-form'>
@@ -37,6 +43,7 @@ const FormikSmurfForm = withFormik({
         axios.post(`http://localhost:3333/smurfs`, values)
         .then(res => {
             // console.log('response', res.data)
+            setStatus(res.data)
             resetForm();
         })
         .catch(error => {
